@@ -1,0 +1,48 @@
+openapi: 3.0.3
+info:
+  title: Leave Management API
+  version: 1.0.0
+paths:
+  /api/leaves:
+    post:
+      summary: Apply for leave
+      description: Submit a new leave request. Requires authentication.
+      tags: [Leaves]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [startDate, endDate, reason]
+              properties:
+                startDate:
+                  type: string
+                  format: date
+                  example: 2025-09-01
+                endDate:
+                  type: string
+                  format: date
+                  example: 2025-09-03
+                reason:
+                  type: string
+                  minLength: 1
+                  example: Vacation days
+      responses:
+        "201":
+          description: Leave request created
+        "400":
+          description: Validation error
+        "401":
+          description: Unauthorized
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+
+

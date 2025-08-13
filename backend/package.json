@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Leave Management System Backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon --watch . server.js --delay 1",
+    "build": "echo 'No build step required for Node.js backend'",
+    "create-first-admin": "node scripts/createFirstAdmin.js",
+    "fix:balances": "node scripts/fixBalances.js",
+    "change-role": "node scripts/changeRole.js",
+    "kill-port": "powershell -Command \"Get-Process -Id (Get-NetTCPConnection -LocalPort 5000).OwningProcess | Stop-Process -Force\"",
+    "kill-port-5001": "powershell -Command \"Get-Process -Id (Get-NetTCPConnection -LocalPort 5001).OwningProcess | Stop-Process -Force\"",
+    "find-port": "netstat -ano | findstr :5000",
+    "find-port-5001": "netstat -ano | findstr :5001"
+  },
+  "keywords": [
+    "leave-management",
+    "nodejs",
+    "express",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

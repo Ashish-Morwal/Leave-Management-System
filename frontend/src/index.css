@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+/* App shell helpers */
+html, body, #root {
+  height: 100%;
+}
+
+.container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.btn {
+  @apply inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+.card {
+  @apply rounded-lg border border-gray-200 bg-white p-4 shadow-sm;
+}
+
+/* Form utilities */
+.input {
+  @apply w-full h-10 rounded-md border border-gray-300 px-3 py-2 text-left placeholder-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-300;
+}
+
+/* Make date inputs visually match text inputs */
+input[type="date"].input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+}
+
+input[type="date"].input::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+  cursor: pointer;
+  filter: invert(40%);
+}
+
+input[type="date"].input::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}

@@ -1,0 +1,14 @@
+# Environment Configuration Template
+# Copy this content to a .env file in your project root
+
+NODE_ENV=development
+PORT=5001
+MONGO_URI=mongodb://localhost:27017/leave-management
+JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+
+# Instructions:
+# 1. Create a .env file in your project root
+# 2. Copy the above content to .env
+# 3. Modify PORT value to avoid conflicts (5001, 3001, etc.)
+# 4. Never commit .env file to version control
+
