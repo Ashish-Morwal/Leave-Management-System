@@ -7,7 +7,6 @@ const addEmployee = async (req, res) => {
     const { name, email, password, joiningDate } = req.body;
 
     // Completely ignore any leaveBalance sent by client
-    // Always use ANNUAL_LEAVE_LIMIT from User model default
     if (!name || !email || !password || !joiningDate) {
       return res.status(400).json({
         message: "Please provide name, email, password, and joiningDate",
@@ -27,7 +26,6 @@ const addEmployee = async (req, res) => {
       password: hashedPassword,
       role: "Employee",
       joiningDate,
-      // leaveBalance automatically set to ANNUAL_LEAVE_LIMIT by User model
       // Client has no control over this value
     });
     const employeeResponse = {
