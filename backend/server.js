@@ -1,4 +1,4 @@
-// Load environment variables
+
 require("dotenv").config();
 require("express-async-errors");
 
@@ -19,29 +19,26 @@ process.env.JWT_SECRET =
   process.env.JWT_SECRET ||
   "your-super-secret-jwt-key-change-this-in-production";
 
-// Initialize Express
+
 const app = express();
 const PORT = parseInt(process.env.PORT) || 5000;
 
-// Connect to MongoDB
 connectDB(process.env.MONGO_URI);
 
-// CORS configuration for development and production
+
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
+    
     if (!origin) return callback(null, true);
 
     // Development origins
     const allowedOrigins = [
-      "http://localhost:3000", // React default
-      "http://localhost:5173", // Vite default
-      "http://localhost:3001", // Alternative React port
-      "http://localhost:8080",
+      "http://localhost:3000", 
+      "http://localhost:5173",
       "https://leave-management-system-frontand.onrender.com"// 
     ];
 
-    // Production origin from environment variable
+    // Production origin 
     if (process.env.CORS_ORIGIN) {
       allowedOrigins.push(process.env.CORS_ORIGIN);
     }
@@ -49,7 +46,7 @@ const corsOptions = {
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      console.log(`🚫 CORS blocked origin: ${origin}`);
+      console.log(` CORS blocked origin: ${origin}`);
       callback(new Error("Not allowed by CORS"));
     }
   },
@@ -86,7 +83,7 @@ app.get("/api/health", (req, res) => {
   });
 });
 
-// Global error handler (must be last)
+// Global error handler 
 app.use(errorHandler);
 
 // Start server
@@ -99,7 +96,7 @@ const server = app.listen(PORT, () => {
   );
 });
 
-// Handle server startup errors
+
 server.on("error", (error) => {
   if (error.code === "EADDRINUSE") {
     console.error(
@@ -112,7 +109,6 @@ server.on("error", (error) => {
   }
 });
 
-// Graceful shutdown
 process.on("SIGTERM", () => {
   console.log("SIGTERM received, shutting down gracefully");
   server.close(() => {
