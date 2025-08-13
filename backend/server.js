@@ -37,7 +37,8 @@ const corsOptions = {
       "http://localhost:3000", // React default
       "http://localhost:5173", // Vite default
       "http://localhost:3001", // Alternative React port
-      "http://localhost:8080", // Alternative dev port
+      "http://localhost:8080",
+      "https://leave-management-system-frontand.onrender.com"// 
     ];
 
     // Production origin from environment variable
