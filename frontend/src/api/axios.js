@@ -6,9 +6,8 @@ const getBaseURL = () => {
     return import.meta.env.VITE_API_URL;
   }
   
-  // For production, this will be your Railway backend URL
   if (import.meta.env.PROD) {
-    return "https://your-railway-backend-url.railway.app";
+    return "https://leave-management-system-backend-gro2.onrender.com";
   }
   
   // For development
