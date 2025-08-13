@@ -1,14 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * Data Hygiene Script: Fix Leave Balances
- *
- * This script normalizes existing user data by ensuring no user has
- * a leave balance exceeding the ANNUAL_LEAVE_LIMIT.
- *
- * Safe to run multiple times - it will only update users who exceed the limit.
- */
-
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const { ANNUAL_LEAVE_LIMIT } = require("../utils/constants");
